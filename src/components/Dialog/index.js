@@ -11,7 +11,7 @@ const Dialog = () => {
 
     return (
         <div className="dialog">
-            <div className="overFlow">
+            <div className="overflow">
                 {normalizedDialog.map((item) => (
                     <Item{...item} key={item.id} />
                 ))}

@@ -1,5 +1,3 @@
-import dialog from "../../data";
-
 export const normalizeDialog = (dialog) => {
     const newDialog = [];
 
