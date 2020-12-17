@@ -7,7 +7,12 @@ import Icon from "../../Icon";
 
 import "./styles.css"
 
-const Item = ({ isReverse, isRemovable, messages, avatar }) => {
+const Item = ({ isReverse, isRemovable, messages, avatar, onRemove }) => {
+    const onRemoveHandle = (event) => {
+        const { id } = event.currentTarget.dataset;
+        onRemove(+id);
+    };
+
     return (
         <div 
         className={classNames("item", {
@@ -31,6 +36,7 @@ const Item = ({ isReverse, isRemovable, messages, avatar }) => {
                             data-id={item.id}
                             size={18}
                             cassName="remove-message"
+                            onClick={onRemoveHandle}
                         />
                     </div>
                 ))}
@@ -51,6 +57,7 @@ Item.propTypes = {
         status : PropTypes.oneOf(["sended", "readed"]),
     })
     ).isRequired,
+    onRemove: PropTypes.func.isRequired,
 };
 
 export default Item;
